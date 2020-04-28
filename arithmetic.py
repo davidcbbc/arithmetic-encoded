@@ -76,6 +76,7 @@ def make_exercise(string, probs):
         print('\033[94m' ,"a_baixo =" ,a_baixo, '\033[0m')
         largura = a_alto - a_baixo
         largura = round(largura,10)
+        print('\033[94m' ,"largura =" ,largura, '\033[0m')
         print("========================")
 
 prob = build_my_prob(alfabetinho)
