@@ -2,7 +2,6 @@ print("para todos os meus caros colegas de mul2 \n")
 print("arithmetic encoding of the night\n")
 print("by capella 😎\n")
 
-
 while True:
     try:
         print("Quantas letras a tabela tem, oh maluco?")
@@ -32,6 +31,14 @@ for x in range(0,numero_letras):
 
     tabelita[letra] = prob
     alfabetinho.append(letra)
+palavra =""
+while True:
+    print("Escolhe a string que queres usar para codificar:")
+    try:
+        palavra = str(input(">"))
+        break
+    except Exception as e:
+        print('\033[93m',"String inválida , tenta outra vez",'\033[0m')
 
 def build_my_prob(codes):
     anterior = 0
@@ -73,5 +80,5 @@ def make_exercise(string, probs):
 
 prob = build_my_prob(alfabetinho)
 
-make_exercise("UUSSAC!",prob)
+make_exercise(palavra,prob)
 
