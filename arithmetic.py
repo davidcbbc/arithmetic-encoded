@@ -64,22 +64,37 @@ def make_exercise(string, probs):
     print("largura = a_alto - a_baixo")
     print("========================")
     for x in range(0,tamanho):
-        print("Iteracao numero ", x+1) 
+        print("Iteracao numero ", x+1)
+        print("Letra :", string[x]) 
         subint_baixo , subint_alto = probs[lista[x]] #vai buscar valores a tabela
         print("a_alto = " , a_baixo , "+",largura,"*",subint_alto)
         a_alto = a_baixo + largura * subint_alto
         a_alto = round(a_alto,10)
-        print('\033[93m',"a_alto =" ,a_alto , '\033[0m')
+        print("a_alto =" ,a_alto)
         print("a_baixo = " , a_baixo , "+",largura,"*",subint_baixo)
         a_baixo = a_baixo + largura * subint_baixo
         a_baixo = round(a_baixo,10)
-        print('\033[94m' ,"a_baixo =" ,a_baixo, '\033[0m')
+        print("a_baixo =" ,a_baixo)
         largura = a_alto - a_baixo
         largura = round(largura,10)
-        print('\033[94m' ,"largura =" ,largura, '\033[0m')
+        print("largura =" ,largura)
         print("========================")
+    num_choice=a_baixo+(largura/2)
+    print("Numero Escolhido :",num_choice,"\nBinario:",float_to_binary(num_choice))
+
+def float_to_binary(num):
+    exponent=0
+    shifted_num=num
+    while shifted_num != int(shifted_num):        
+        shifted_num*=2
+        exponent+=1
+    if exponent==0:
+        return '{0:0b}'.format(int(shifted_num))
+    binary='{0:0{1}b}'.format(int(shifted_num),exponent+1)
+    integer_part=binary[:-exponent]
+    fractional_part=binary[-exponent:].rstrip('0')
+    return '{0}.{1}'.format(integer_part,fractional_part)
 
 prob = build_my_prob(alfabetinho)
 
 make_exercise(palavra,prob)
-
